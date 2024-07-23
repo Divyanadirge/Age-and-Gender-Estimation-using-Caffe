@@ -1,1 +1,1 @@
-
+/home/user1/Music/Gender-and-Age-Detection-OpenCV-Caffe-master/data/age_net.caffemodel /home/user1/Music/Gender-and-Age-Detection-OpenCV-Caffe-master/data/deploy_age.prototxt /home/user1/Music/Gender-and-Age-Detection-OpenCV-Caffe-master/data/deploy_gender.prototxt /home/user1/Music/Gender-and-Age-Detection-OpenCV-Caffe-master/data/gender_net.caffemodel /home/user1/Music/Gender-and-Age-Detection-OpenCV-Caffe-master/data/haarcascade_frontalface_alt.xml
