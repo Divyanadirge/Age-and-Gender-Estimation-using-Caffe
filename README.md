@@ -2,82 +2,76 @@
 The dataset is divided into training and validation sets using Keras's `ImageDataGenerator` with a 20% split for validation. This setup ensures that `train_ds` contains 80% of the data for model training, while `valid_ds` comprises the remaining 20% for validation.
 
 
-### Summary of `prediction.py`
+# Predict Age and Gender using OpenCV and Deep Learning
 
-The script `predict.py` is used for age and gender prediction using OpenCV and deep learning models. It captures video from a webcam, detects faces, and predicts the age and gender of the detected faces. The predictions are displayed on the video feed in real-time.
-
-### Contents of `README.md`
-
-```markdown
-# Age and Gender Prediction
-
-This project uses OpenCV and pre-trained Caffe models to predict the age and gender of faces detected in real-time from a webcam feed.
+This repository contains a Python script to predict age and gender using OpenCV and deep learning models.
 
 ## Requirements
 
-- Python 3.x
 - OpenCV
-- Numpy
 - imutils
+- numpy
 
 ## Installation
 
-1. Clone the repository
-   ```bash
-   git clone https://github.com/your-username/age-gender-prediction.git
-   ```
-2. Navigate to the project directory
-   ```bash
-   cd age-gender-prediction
-   ```
-3. Install the required packages
-   ```bash
-   pip install -r requirements.txt
+1. Install OpenCV:
+   ```sh
+   pip install opencv-python
    ```
 
-## Usage
+2. Install other required libraries:
+   ```sh
+   pip install imutils numpy
+   ```
 
-1. Ensure you have the required Caffe models and Haarcascade file in the `data` directory:
+3. Download the pre-trained models:
    - `deploy_age.prototxt`
    - `age_net.caffemodel`
    - `deploy_gender.prototxt`
    - `gender_net.caffemodel`
    - `haarcascade_frontalface_alt.xml`
 
-2. Run the script
-   ```bash
-   python prediction.py
-   ```
+   Ensure these files are placed in the `data` directory.
 
-3. The webcam feed will open, and the detected faces will be displayed with their predicted age and gender.
+## Usage
 
-## File Structure
-
-- `prediction.py`: Main script to run the age and gender prediction.
-- `data/`: Directory containing the model files and Haarcascade file.
-  - `deploy_age.prototxt`
-  - `age_net.caffemodel`
-  - `deploy_gender.prototxt`
-  - `gender_net.caffemodel`
-  - `haarcascade_frontalface_alt.xml`
-
-## How It Works
-
-1. The script captures video from the webcam.
-2. It uses the Haarcascade classifier to detect faces in the video feed.
-3. For each detected face, it creates a blob and uses the pre-trained Caffe models to predict the age and gender.
-4. The predictions are displayed on the video feed.
-
-## License
-
-This project is licensed under the MIT License.
+Run the script to start the age and gender prediction:
+```sh
+python prediction.py
 ```
 
-### Additional Notes
+## Script Overview
 
-- Ensure you have the Caffe model files and the Haarcascade XML file in the `data` directory.
-- The script uses the following Caffe models:
-  - Age prediction model: `deploy_age.prototxt` and `age_net.caffemodel`
-  - Gender prediction model: `deploy_gender.prototxt` and `gender_net.caffemodel`
-- Haarcascade file for face detection: `haarcascade_frontalface_alt.xml`
+The script initializes the Caffe models for age and gender prediction, captures video from the webcam, detects faces, and predicts the age and gender for each detected face.
+
+### Functions
+
+- `initialize_caffe_models()`: Loads the pre-trained Caffe models for age and gender prediction.
+- `read_from_camera(age_net, gender_net)`: Captures video from the webcam, detects faces, and uses the loaded models to predict age and gender.
+
+### Model Mean Values and Lists
+
+- `MODEL_MEAN_VALUES`: Mean values for the models.
+- `age_list`: List of age ranges.
+- `gender_list`: List of genders.
+
+### Main Flow
+
+1. Initialize the models.
+2. Start capturing video.
+3. Detect faces in each frame.
+4. For each detected face:
+   - Predict gender.
+   - Predict age.
+   - Overlay the predicted gender and age on the video frame.
+5. Display the video frame.
+6. Press 'q' to quit.
+
+
+
+
+
+
+
+
 
