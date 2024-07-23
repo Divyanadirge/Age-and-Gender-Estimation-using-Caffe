@@ -2,7 +2,7 @@
 The dataset is divided into training and validation sets using Keras's `ImageDataGenerator` with a 20% split for validation. This setup ensures that `train_ds` contains 80% of the data for model training, while `valid_ds` comprises the remaining 20% for validation.
 
 
-### Summary of `predict.py`
+### Summary of `prediction.py`
 
 The script `predict.py` is used for age and gender prediction using OpenCV and deep learning models. It captures video from a webcam, detects faces, and predicts the age and gender of the detected faces. The predictions are displayed on the video feed in real-time.
 
@@ -46,14 +46,14 @@ This project uses OpenCV and pre-trained Caffe models to predict the age and gen
 
 2. Run the script
    ```bash
-   python predict.py
+   python prediction.py
    ```
 
 3. The webcam feed will open, and the detected faces will be displayed with their predicted age and gender.
 
 ## File Structure
 
-- `predict.py`: Main script to run the age and gender prediction.
+- `prediction.py`: Main script to run the age and gender prediction.
 - `data/`: Directory containing the model files and Haarcascade file.
   - `deploy_age.prototxt`
   - `age_net.caffemodel`
@@ -81,4 +81,3 @@ This project is licensed under the MIT License.
   - Gender prediction model: `deploy_gender.prototxt` and `gender_net.caffemodel`
 - Haarcascade file for face detection: `haarcascade_frontalface_alt.xml`
 
-You can customize the `README.md` file further based on your specific requirements and additional details you might want to include.
